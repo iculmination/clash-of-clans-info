@@ -1,4 +1,5 @@
 import { Separator } from "../ui/separator";
+import miniPekka from "./mini_pekka_fl.2902ff2f.webp";
 import {
   Swords,
   Shield,
@@ -180,7 +181,7 @@ const Players = () => {
             <h2 className="text-lg text-white bg-gradient-to-r p-4 from-blue-500 to-white from-10% via-sky-500 via-30% rounded-t-2xl">
               Home Village
             </h2>
-          some season info + home troops (including siege veapons) n heroes 
+            some season info + home troops (including siege weapons) n heroes
             <div className="flex flex-wrap justify-center gap-2 p-8">
               {armyData.map((el) => {
                 return (
@@ -193,9 +194,7 @@ const Players = () => {
                 );
               })}
             </div>
-
             <Separator />
-
             <div className="flex flex-wrap justify-center gap-2 p-8">
               {spellsData.map((el) => {
                 return (
@@ -227,9 +226,7 @@ const Players = () => {
                 );
               })}
             </div>
-
             <Separator />
-
             <div className="flex flex-wrap justify-center gap-2 p-8">
               {spellsData.map((el) => {
                 return (
@@ -243,6 +240,14 @@ const Players = () => {
               })}
             </div>
           </div>
+        </div>
+        {/* mini pekka */}
+        <div className="bg-blue-500 h-40 mt-36 relative ">
+          <img src={miniPekka} alt="" className="absolute w-72 -mt-[110px] right-1/4" />
+        </div>
+        {/* footer */}
+        <div className="bg-black h-96">
+        <p className="text-white">footer</p>
         </div>
       </div>
     </section>
