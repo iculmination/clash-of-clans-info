@@ -58,7 +58,7 @@ const Header = () => {
           <div className="flex">
             <Input
               className="max-w-96 text-black placeholder:text-gray-300"
-              placeHolder="Search..."
+              placeholder="Search..."
             ></Input>
             <Button className="rounded-l-none -ml-14 hover:bg-white group">
               <Search className="group-hover:text-black" />

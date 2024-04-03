@@ -7,6 +7,8 @@ import {
   ArrowDownFromLine,
 } from "lucide-react";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "../ui/tabs";
+import useClashApi from "src/services/useClashApi";
+import { useEffect } from "react";
 
 const armyData = [
   {
@@ -123,6 +125,12 @@ const spellsData = [
 ];
 
 const Players = () => {
+  const { getPlayer } = useClashApi();
+
+  useEffect(() => {
+    getPlayer("https://api.clashofclans.com/v1/players/%23QYGYGLJUV");
+  }, []);
+
   return (
     <section className="min-h-screen w-full">
       <div className="bg-[url('https://www.clashschool.com/wp-content/uploads/2018/01/clash-of-clans-banner-coaching.png')] w-full bg-cover h-96 pt-32"></div>
@@ -185,7 +193,7 @@ const Players = () => {
             <div className="flex flex-wrap justify-center gap-2 p-8">
               {armyData.map((el) => {
                 return (
-                  <div className="h-15 border rounded">
+                  <div key={el.src} className="h-15 border rounded">
                     <img src={el.src} alt="" className="size-10" />
                     <p className="text-center text-sm w-full text-gray-500">
                       {el.lvl}
@@ -217,7 +225,7 @@ const Players = () => {
             <div className="flex flex-wrap justify-center gap-2 p-8">
               {armyData.map((el) => {
                 return (
-                  <div className="h-15 border rounded">
+                  <div key={el.src} className="h-15 border rounded">
                     <img src={el.src} alt="" className="size-10" />
                     <p className="text-center text-sm w-full text-gray-500">
                       {el.lvl}
@@ -230,7 +238,7 @@ const Players = () => {
             <div className="flex flex-wrap justify-center gap-2 p-8">
               {spellsData.map((el) => {
                 return (
-                  <div className="h-15 border rounded">
+                  <div key={el.src} className="h-15 border rounded">
                     <img src={el.src} alt="" className="size-10" />
                     <p className="text-center text-sm w-full text-gray-500">
                       {el.lvl}
@@ -243,11 +251,15 @@ const Players = () => {
         </div>
         {/* mini pekka */}
         <div className="bg-blue-500 h-40 mt-36 relative ">
-          <img src={miniPekka} alt="" className="absolute w-72 -mt-[110px] right-1/4" />
+          <img
+            src={miniPekka}
+            alt=""
+            className="absolute w-72 -mt-[110px] right-1/4"
+          />
         </div>
         {/* footer */}
         <div className="bg-black h-96">
-        <p className="text-white">footer</p>
+          <p className="text-white">footer</p>
         </div>
       </div>
     </section>
